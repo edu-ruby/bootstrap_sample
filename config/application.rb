@@ -30,5 +30,20 @@ module BootstrapSample
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # disable timestamped migrations
+    config.active_record.timestamped_migrations = false
+
+    # disable generate some of files
+    config.generators do |g|
+      g.orm             :active_record
+      g.template_engine :erb
+      g.test_framework  :test_unit, fixture: false
+      g.stylesheets     false
+      g.javascripts     false
+      g.helper          false
+      g.assets          false
+      g.jbuilder        false
+    end
   end
 end
