@@ -1,31 +1,32 @@
-<p id="notice"><%= notice %></p>
+<!-- レイアウトにタイトルを渡すために追加 -->
+<% provide(:title, 'Listing admin_contacts') %>
 
-<h1>Listing Admin Contacts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Message</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @admin_contacts.each do |admin_contact| %>
+<!-- レスポンシブ対応のために div を追加 -->
+<div class="table-responsive">
+  <!-- テーブルにクラスを追加 -->
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= admin_contact.name %></td>
-        <td><%= admin_contact.email %></td>
-        <td><%= admin_contact.message %></td>
-        <td><%= link_to 'Show', admin_contact %></td>
-        <td><%= link_to 'Edit', edit_admin_contact_path(admin_contact) %></td>
-        <td><%= link_to 'Destroy', admin_contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Email</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @admin_contacts.each do |admin_contact| %>
+        <tr>
+          <td><%= admin_contact.name %></td>
+          <td><%= admin_contact.email %></td>
+          <td><%= link_to 'Show', admin_contact %></td>
+          <td><%= link_to 'Edit', edit_admin_contact_path(admin_contact) %></td>
+          <!-- 削除ボタンにクラスを追加 -->
+          <td><%= link_to 'Destroy', admin_contact, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'New Contact', new_admin_contact_path %>
+<!-- ユーザー追加ボタンにクラスを追加 -->
+<p><%= link_to 'New Contact', new_admin_contact_path, class: 'btn btn-primary' %></p>

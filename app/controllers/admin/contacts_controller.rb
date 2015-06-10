@@ -1,4 +1,4 @@
-class Admin::ContactsController < ApplicationController
+class Admin::ContactsController < Admin::ApplicationController
   before_action :set_admin_contact, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/contacts
