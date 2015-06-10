@@ -45,5 +45,8 @@ module BootstrapSample
       g.assets          false
       g.jbuilder        false
     end
+
+    # add fonts
+    config.assets.paths << "#{Rails}/vender/assets/fonts"
   end
 end
